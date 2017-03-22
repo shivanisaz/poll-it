@@ -1,0 +1,38 @@
+<div flex style="margin-left: 400px;margin-right: 400px;">
+	<md-content layout-gt-sm="row" layout-padding>
+	   <div>
+	     <md-input-container>
+	       <label>Name</label>
+	       <input ng-model="$ctrl.feedService.user.name">
+	     </md-input-container>
+
+	     <md-input-container>
+	       <label>Age</label>
+	       <input ng-model="$ctrl.feedService.user.age" type="number">
+	     </md-input-container>
+
+	    <label> Caste </label>
+	     <md-select ng-model="$ctrl.feedService.user.caste">
+	       <md-option ng-value="opt" ng-repeat="opt in ['Brahmin', 'Vaishya', 'Shudra']">{{ opt }}</md-option>
+	     </md-select>
+
+	     <label> Religion </label>
+	      <md-select ng-model="$ctrl.feedService.user.religion">
+	        <md-option ng-value="opt" ng-repeat="opt in ['Hindu', 'Muslim', 'Christian']">{{ opt }}</md-option>
+	      </md-select>
+
+	     <label> Education </label>
+	      <md-select ng-model="$ctrl.feedService.user.education">
+	        <md-option ng-value="opt" ng-repeat="opt in ['12th Pass', 'Graduate', 'Post-Graduate']">{{ opt }}</md-option>
+	      </md-select>
+
+	       <label> Economic strata </label>
+	        <md-select ng-model="$ctrl.feedService.user.eco_strata">
+	          <md-option ng-value="opt" ng-repeat="opt in ['BPL', 'Lower Middle-class', 'Middle class', 'Affluent']">{{ opt }}</md-option>
+	        </md-select>
+	   </div>
+
+	   <md-button class="md-raised" ng-click="$ctrl.submit()">Submit</md-button>
+
+	 </md-content>
+</div>

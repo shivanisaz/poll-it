@@ -1,0 +1,52 @@
+<div class="row" ng-controller="feedCtrl as $ctrl">
+	<div class="col-md-10" style="margin-left: 30px;">
+		<div ng-repeat="post in $ctrl.feedService.posts">
+			<md-card>
+				<div class="row">
+					<div class="col-md-3" style="padding: 20px;">
+						<img class="md-card-image" src="{{post.political_party.candidate.photo}}" alt="Cadidate photo" height="50%" width="100%">
+					</div>
+					<div class="col-md-9">
+						<div class="row">
+							<md-card-header>
+							<md-card-header-text>
+								<span class="md-headline"> {{post.title}} </span>
+								<span class="md-subhead">{{post.created_at | date: 'medium'}}
+							</md-card-header-text>
+							</md-card-header>
+						</div>
+						<div class="row">
+							<md-card-content>
+								<p>
+									{{post.description}}
+									<div ng-if="post.media_type =='poster'">
+										<center>
+											<img ng-src="{{post.link}}" height="250px" width="250px">
+										</center>
+									</div>
+									<div ng-if="post.media_type=='video'">
+										<center>
+											<img src="http://stech3.firstpost.com/tech2images/640x359/proportional/jpeg/2014/01/Youtube-logo-624x351.jpg" height="250px" width="250px">
+										</center>
+									</div>
+									<!-- <div ng-if="post.media_type=='video'" class="embed-responsive embed">
+										<iframe class="embed-responsive-item" ng-src="{{post.link}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+									</div> -->
+									<div ng-if="post.media_type == 'audio'">
+										<center>
+											<img ng-src="http://thetruthspy.com/wp-content/uploads/2015/01/play_call_recording-300x252.png" alt="">
+										</center>
+									</div>
+								</p>
+								<div>
+								<md-button ng-click="$ctrl.support(post.id)">Support</md-button>
+								<md-button ng-click="$ctrl.oppose(post.id)">Oppose</md-button>
+								</div>
+							</md-card-content>
+						</div>
+					</div>
+				</div>
+			</md-card>
+		</div>
+	</div>
+</div>
